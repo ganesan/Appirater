@@ -46,25 +46,49 @@ require("sqlite3")
 
 
 
-local appirater_App_ID = "301377083"
-local appirater_App_Name = "RocketMouse"
+------ Place your Apple ID here.
+local appirater_App_ID = "" 
+
+------ Place your app's name
+local appirater_App_Name = "" 
+
+------ This is the message your users will see once they've passed the day+launches threshold.
 local appirater_Message_Part1 = "If you enjoy using "
 local appirater_Message_Part2 = ", would you mind taking a moment to rate it? It won't take more than a minute. Thanks for your support!"
+
+------ This is the title of the message alert that users will see.
 local appirater_Message_Title = "Rate"
+
+------ The text of the button that rejects reviewing the app.
 local appirater_Cancel_Button = "No, Thanks"
+
+------ Text of button that will send user to app review page.
 local appirater_Rate_Button = "Rate"
+
+------ Text for button to remind the user to review later.
 local appirater_Rate_Later = "Remind me later"
-local appirater_Days_Until_Prompt = 0.01
+
+------ Users will need to have the same version of your app installed for this many days before they will be prompted to rate it.
+local appirater_Days_Until_Prompt = 1
+
+------ An example of a 'use' would be if the user launched the app. Bringing the app into the foreground (on devices that support it) would also be considered a 'use'
 local appirater_Uses_Until_Prompt = 3
+
+------ A significant event can be anything you want to be in your app.
 local appirater_Sig_Events_Until_Prompt = 5
-local appirater_Time_Before_Reminding = 0.01
+
+------ Once the rating alert is presented to the user, they might select 'Remind me later'. This value specifies how long (in days) Appirater will wait before reminding them.
+local appirater_Time_Before_Reminding = 1
+
+------ 'YES' will show the Appirater alert everytime. Useful for testing how your message looks and making sure the link to your app's review page works.
 local appirater_Debug = false
+
 local canPromptForRating = false
 
-
-
 local ratingAlert = nil
+
 local userDefaults = {}
+
 
 local templateReviewURL = "itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=";
 
